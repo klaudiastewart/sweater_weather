@@ -3,6 +3,7 @@ class Api::V1::WeatherController < ApplicationController
     if params[:location].nil? || !params[:location].present?
       # render 400 or 404
     else
-      @forecase = WeatherFacade.get_forecast(params[:location])
+      @forecast = WeatherFacade.get_forecast(params[:location])
+    end
   end
 end

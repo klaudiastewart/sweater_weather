@@ -19,15 +19,18 @@ class WeatherFacade
         icon: forecast[:current][:weather].first[:icon]
       }
 
-      daily_weather = {
+      require "pry"; binding.pry
+      daily_weather = forecast[:daily].map do |day|
+        {
 
-      }
-
+        }
+      end
+      
       hourly_weather = {
 
       }
-      
-      Forecast.new(forecast)
+
+      # Forecast.new(forecast)
     end
   end
 end
