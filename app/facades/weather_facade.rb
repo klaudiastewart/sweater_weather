@@ -10,8 +10,8 @@ class WeatherFacade
         datetime: Time.at(forecast[:current][:dt]).to_s,
         sunrise: Time.at(forecast[:current][:sunrise]).to_s,
         sunset: Time.at(forecast[:current][:sunset]).to_s,
-        temperature: forecast[:current][:temp],
-        feels_like: forecast[:current][:feels_like],
+        temperature: (forecast[:current][:temp] - 273) * 1.8 + 32,
+        feels_like: (forecast[:current][:feels_like] - 273) * 1.8 + 32,
         humidity: forecast[:current][:humidity],
         uvi: forecast[:current][:uvi],
         visibility: forecast[:current][:visibility],
@@ -23,8 +23,8 @@ class WeatherFacade
           date: Time.at(day[:dt]).to_date,
                sunrise: Time.at(day[:sunrise]).to_s(:time),
                sunset: Time.at(day[:sunset]).to_s(:time),
-               max_temp: day[:temp][:max],
-               min_temp: day[:temp][:min],
+               max_temp: (day[:temp][:max] - 273) * 1.8 + 32,
+               min_temp: (day[:temp][:min] - 273) * 1.8 + 32,
                conditions: day[:weather].first[:description],
                icon: day[:weather].first[:icon]
         }
@@ -32,7 +32,7 @@ class WeatherFacade
       hourly_weather = forecast[:hourly].map do |hour|
         {
           time: Time.at(hour[:dt]).to_s(:time),
-          temp: hour[:temp],
+          temp: (hour[:temp] - 273) * 1.8 + 32,
           conditions: hour[:weather].first[:description],
           icon: hour[:weather].first[:icon]
         }
