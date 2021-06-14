@@ -4,6 +4,7 @@ class MapquestService
       resp = conn.get("/geocoding/v1/address") do |faraday|
         faraday.params['location'] = location
       end
+      return "No location found" if resp.env.request_body.nil?
       parse_json(resp)
     end
 
