@@ -1,6 +1,14 @@
 class Book
-  attr_reader
+  attr_reader :destination,
+              :forecast,
+              :books_found,
+              :books
 
-  def initialize(book)
+  def initialize(destination, forecast, books_found, books)
+    @id = nil
+    @destination = destination
+    @forecast = forecast
+    @books_found = books_found
+    @books = books
   end
 end
