@@ -17,7 +17,7 @@ RSpec.describe 'Book Facade' do
 
     it 'gets books based on location', :vcr do
       response = BookFacade.get_books('denver, co', 5)
-      expect(response.class).to eq(Hash)
+      expect(response.class).to eq(Book)
     end
   end
 end
