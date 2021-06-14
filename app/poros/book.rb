@@ -3,7 +3,7 @@ class Book
               :forecast,
               :books_found,
               :books,
-              :id 
+              :id
 
   def initialize(destination, forecast, books_found, books)
     @id = nil
