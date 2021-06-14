@@ -2,11 +2,16 @@ class WeatherFacade
   class << self
     def get_forecast(location)
       lat_lon = MapquestService.get_lat_long(location)
-      return lat_lon if lat_lon == "No location found"
+      return lat_lon if lat_lon.class == String
       lat = lat_lon[:results].first[:locations].first[:latLng][:lat]
       lon = lat_lon[:results].first[:locations].first[:latLng][:lng]
       forecast = OpenweatherService.get_forecast(lat, lon)
+      daily = daily_weather(forecast)[0..4]
+      hourly = hourly_weather(forecast)[0..7]
+      Forecast.new(current_weather(forecast), daily, hourly)
+    end
 
+    def current_weather(forecast)
       current_weather = {
         datetime: Time.at(forecast[:current][:dt]).to_s,
         sunrise: Time.at(forecast[:current][:sunrise]).to_s,
@@ -19,6 +24,9 @@ class WeatherFacade
         conditions: forecast[:current][:weather].first[:description],
         icon: forecast[:current][:weather].first[:icon]
       }
+    end
+
+    def daily_weather(forecast)
       daily_weather = forecast[:daily].map do |day|
         {
           date: Time.at(day[:dt]).to_date,
@@ -30,6 +38,9 @@ class WeatherFacade
                icon: day[:weather].first[:icon]
         }
       end
+    end
+
+    def hourly_weather(forecast)
       hourly_weather = forecast[:hourly].map do |hour|
         {
           time: Time.at(hour[:dt]).to_s(:time),
@@ -38,11 +49,6 @@ class WeatherFacade
           icon: hour[:weather].first[:icon]
         }
       end
-
-      daily = daily_weather[0..4]
-      hourly = hourly_weather[0..7]
-
-      Forecast.new(current_weather, daily, hourly)
     end
   end
 end
