@@ -30,12 +30,12 @@ class WeatherFacade
       daily_weather = forecast[:daily].map do |day|
         {
           date: Time.at(day[:dt]).to_date,
-               sunrise: Time.at(day[:sunrise]).to_s(:time),
-               sunset: Time.at(day[:sunset]).to_s(:time),
-               max_temp: (day[:temp][:max] - 273) * 1.8 + 32,
-               min_temp: (day[:temp][:min] - 273) * 1.8 + 32,
-               conditions: day[:weather].first[:description],
-               icon: day[:weather].first[:icon]
+          sunrise: Time.at(day[:sunrise]).to_s(:time),
+          sunset: Time.at(day[:sunset]).to_s(:time),
+          max_temp: (day[:temp][:max] - 273) * 1.8 + 32,
+          min_temp: (day[:temp][:min] - 273) * 1.8 + 32,
+          conditions: day[:weather].first[:description],
+          icon: day[:weather].first[:icon]
         }
       end
     end
