@@ -15,9 +15,9 @@ RSpec.describe 'Book Facade' do
       expect(response.class).to eq(Forecast)
     end
 
-    it 'gets books based on location' do
-      # response = WeatherFacade.get_forecast('denver,co')
-      response2 = BookFacade.get_books('denver, co', 5)
+    it 'gets books based on location', :vcr do
+      response = BookFacade.get_books('denver, co', 5)
+      expect(response.class).to eq(Hash)
     end
   end
 end
