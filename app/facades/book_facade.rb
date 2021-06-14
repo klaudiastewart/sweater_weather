@@ -8,7 +8,7 @@ class BookFacade
       weather = OpenweatherService.get_forecast(lat, lon)
       forecast = {
         summary: weather[:current][:weather].first[:description],
-        temperature: (weather[:current][:temp] - 273) * 1.8 + 32
+        temperature: "#{((weather[:current][:temp] - 273) * 1.8 + 32).round} F"
       }
       searched_books = OpenlibraryService.find_books(location, quantity)
       Book.new(destination, forecast, searched_books[:numFound], books_hash(searched_books))
