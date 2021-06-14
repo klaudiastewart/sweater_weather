@@ -16,13 +16,11 @@ class BookFacade
 
     def books_hash(searched_books)
       books = searched_books[:docs].map do |book|
-        [
           {
           isbn: book[:isbn],
           title: book[:title],
           publisher: book[:publisher]
         }
-      ]
       end
       books.first(5)
     end
