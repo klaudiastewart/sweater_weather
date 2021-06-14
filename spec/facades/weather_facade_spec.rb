@@ -10,9 +10,33 @@ RSpec.describe 'Weather Facade' do
       )
     end
 
-    it 'returns current weather', :vcr do
+    it 'gets current weather, daily weather, and hourly weather to make a forecast object', :vcr do
       response = WeatherFacade.get_forecast('denver,co')
       expect(response.class).to eq(Forecast)
+    end
+
+    it 'gets current_weather', :vcr do
+      response = WeatherFacade.current_weather(@forecast)
+      expect(response.class).to eq(Hash)
+      expect(response.keys).to eq([:datetime, :sunrise, :sunset, :temperature, :feels_like, :humidity, :uvi, :visibility, :conditions, :icon])
+      expect(response.keys.size).to eq(10)
+      expect(response.keys).to_not eq([:dew_point, :clouds, :pressure, :visibility, :wind_speed, :wind_deg, :wind_gust])
+    end
+
+    it 'gets hourly_weather', :vcr do
+      response = WeatherFacade.hourly_weather(@forecast)
+      expect(response.class).to eq(Array)
+      expect(response.first.keys).to eq([:time, :temp, :conditions, :icon])
+      expect(response.first.keys.size).to eq(4)
+      expect(response.first.keys).to_not eq([:wind_speed, :wind_deg, :wind_gust, :feels_like, :humidity, :pressure, :moonrise, :moon_phase, :moonset])
+    end
+
+    it 'gets daily_weather', :vcr do
+      response = WeatherFacade.daily_weather(@forecast)
+      expect(response.class).to eq(Array)
+      expect(response.first.keys).to eq([:date, :sunrise, :sunset, :max_temp, :min_temp, :conditions, :icon])
+      expect(response.first.keys.size).to eq(7)
+      expect(response.first.keys).to_not eq([:wind_speed, :wind_deg, :wind_gust, :feels_like, :humidity, :pressure, :moonrise, :moon_phase, :moonset])
     end
   end
 end
