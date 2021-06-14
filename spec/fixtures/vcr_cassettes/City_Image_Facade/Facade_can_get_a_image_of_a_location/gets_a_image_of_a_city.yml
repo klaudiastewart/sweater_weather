@@ -1,0 +1,79 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.unsplash.com/photos/random?client_id=YQDo4xrBRyZX9bNMMJij05fbYa_GCyFS7pGMHbobkr4&count=1&query=san%20diego,ca%20downtown
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1095'
+      Server:
+      - Cowboy
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - "*"
+      Access-Control-Allow-Headers:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Link,X-Total,X-Per-Page,X-RateLimit-Limit,X-RateLimit-Remaining
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Content-Type:
+      - application/json
+      Etag:
+      - W/"46b1da119ff7da492dd40ca1ac6ee951"
+      X-Ratelimit-Limit:
+      - '50'
+      X-Ratelimit-Remaining:
+      - '49'
+      X-Request-Id:
+      - 6212ff1d-064d-41a7-9ae9-f4ac9548947b
+      X-Runtime:
+      - '0.126159'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Via:
+      - 1.1 vegur, 1.1 varnish, 1.1 varnish
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Mon, 14 Jun 2021 02:25:29 GMT
+      Age:
+      - '0'
+      X-Served-By:
+      - cache-dca17772-DCA, cache-den8251-DEN
+      X-Cache:
+      - MISS, MISS
+      X-Cache-Hits:
+      - 0, 0
+      X-Timer:
+      - S1623637529.453538,VS0,VE174
+      Vary:
+      - Accept-Encoding, Origin,Authorization
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"id":"PjdNehWCUe8","created_at":"2019-05-22T09:10:44-04:00","updated_at":"2021-06-13T14:07:26-04:00","promoted_at":null,"width":3264,"height":2448,"color":"#a6c0d9","blur_hash":"LoH2=:M{jYfl%%j?axj[4;offRay","description":null,"alt_description":"high-rise
+        building near calm body of water","urls":{"raw":"https://images.unsplash.com/photo-1558530481-c77d6163b00c?ixid=MnwyMzkxMjl8MHwxfHJhbmRvbXx8fHx8fHx8fDE2MjM2Mzc1Mjk\u0026ixlib=rb-1.2.1","full":"https://images.unsplash.com/photo-1558530481-c77d6163b00c?crop=entropy\u0026cs=srgb\u0026fm=jpg\u0026ixid=MnwyMzkxMjl8MHwxfHJhbmRvbXx8fHx8fHx8fDE2MjM2Mzc1Mjk\u0026ixlib=rb-1.2.1\u0026q=85","regular":"https://images.unsplash.com/photo-1558530481-c77d6163b00c?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyMzkxMjl8MHwxfHJhbmRvbXx8fHx8fHx8fDE2MjM2Mzc1Mjk\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=1080","small":"https://images.unsplash.com/photo-1558530481-c77d6163b00c?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyMzkxMjl8MHwxfHJhbmRvbXx8fHx8fHx8fDE2MjM2Mzc1Mjk\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=400","thumb":"https://images.unsplash.com/photo-1558530481-c77d6163b00c?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyMzkxMjl8MHwxfHJhbmRvbXx8fHx8fHx8fDE2MjM2Mzc1Mjk\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=200"},"links":{"self":"https://api.unsplash.com/photos/PjdNehWCUe8","html":"https://unsplash.com/photos/PjdNehWCUe8","download":"https://unsplash.com/photos/PjdNehWCUe8/download","download_location":"https://api.unsplash.com/photos/PjdNehWCUe8/download?ixid=MnwyMzkxMjl8MHwxfHJhbmRvbXx8fHx8fHx8fDE2MjM2Mzc1Mjk"},"categories":[],"likes":72,"liked_by_user":false,"current_user_collections":[],"sponsorship":null,"user":{"id":"bJrkW-9FQdE","updated_at":"2021-06-13T13:57:51-04:00","username":"bigtinybelly","name":"big.tiny.belly","first_name":"big.tiny.belly","last_name":null,"twitter_username":null,"portfolio_url":null,"bio":"A
+        third culture kid who can''t be stopped!","location":null,"links":{"self":"https://api.unsplash.com/users/bigtinybelly","html":"https://unsplash.com/@bigtinybelly","photos":"https://api.unsplash.com/users/bigtinybelly/photos","likes":"https://api.unsplash.com/users/bigtinybelly/likes","portfolio":"https://api.unsplash.com/users/bigtinybelly/portfolio","following":"https://api.unsplash.com/users/bigtinybelly/following","followers":"https://api.unsplash.com/users/bigtinybelly/followers"},"profile_image":{"small":"https://images.unsplash.com/profile-1558531293822-fb4d10e79407?ixlib=rb-1.2.1\u0026q=80\u0026fm=jpg\u0026crop=faces\u0026cs=tinysrgb\u0026fit=crop\u0026h=32\u0026w=32","medium":"https://images.unsplash.com/profile-1558531293822-fb4d10e79407?ixlib=rb-1.2.1\u0026q=80\u0026fm=jpg\u0026crop=faces\u0026cs=tinysrgb\u0026fit=crop\u0026h=64\u0026w=64","large":"https://images.unsplash.com/profile-1558531293822-fb4d10e79407?ixlib=rb-1.2.1\u0026q=80\u0026fm=jpg\u0026crop=faces\u0026cs=tinysrgb\u0026fit=crop\u0026h=128\u0026w=128"},"instagram_username":null,"total_collections":0,"total_likes":0,"total_photos":11,"accepted_tos":true,"for_hire":false},"exif":{"make":"Apple","model":"iPhone
+        5","exposure_time":"1/427","aperture":"2.4","focal_length":"4.1","iso":50},"location":{"title":"Centennial
+        Park, 1101 1st St, Coronado, CA 92118, USA, United States","name":"Centennial
+        Park, 1101 1st St, Coronado, CA 92118, USA, United States","city":"Coronado","country":"United
+        States","position":{"latitude":32.69990556,"longitude":-117.17167778}},"views":98568,"downloads":868}]'
+  recorded_at: Mon, 14 Jun 2021 02:25:29 GMT
+recorded_with: VCR 6.0.0
