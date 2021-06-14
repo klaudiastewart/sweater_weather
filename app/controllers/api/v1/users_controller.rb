@@ -1,11 +1,12 @@
 class Api::V1::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
-    if @user.save
+    if @user.password != @user.password_confirmation || !@user.password.present?
+      render json: @user.errors, status: :unprocessable_entity
+    else
+      @user.save
       @user.update(api_key: SecureRandom.hex)
       render json: UserSerializer.new(@user), status: :created
-    else
-      render json: @user.errors, status: :unprocessable_entity
     end
   end
 
