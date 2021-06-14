@@ -1,4 +1,4 @@
 class ImageSerializer
   include FastJsonapi::ObjectSerializer
-  # attributes 
+  attributes :destination, :forecast, :books_found, :books 
 end
