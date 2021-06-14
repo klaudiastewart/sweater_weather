@@ -4,7 +4,6 @@ class Api::V1::BooksController < ApplicationController
       location = params[:location]
       quantity = params[:quantity]
       object = BookFacade.get_books(location, quantity)
-      # require "pry"; binding.pry
       render json: BookSerializer.new(object)
     else
       return bad_params_400("Book not found")
