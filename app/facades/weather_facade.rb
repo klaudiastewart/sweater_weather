@@ -2,6 +2,7 @@ class WeatherFacade
   class << self
     def get_forecast(location)
       lat_lon = MapquestService.get_lat_long(location)
+      return lat_lon if lat_lon == "No location found"
       lat = lat_lon[:results].first[:locations].first[:latLng][:lat]
       lon = lat_lon[:results].first[:locations].first[:latLng][:lng]
       forecast = OpenweatherService.get_forecast(lat, lon)
