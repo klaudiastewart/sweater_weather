@@ -6,7 +6,7 @@ class MapquestService
       end
       parse_json(resp)
       # resp.body.present? == false
-      return "No location found" if !resp.body.present? #resp.env.request_body.empty?
+      # return "No location found" if !resp.body.present? #resp.env.request_body.empty?
     end
 
     private
