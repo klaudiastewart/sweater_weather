@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       get '/forecast', to: 'weather#forecast'
       get '/backgrounds', to: 'cityimage#background'
       post '/users', to: 'users#create'
+
+      get '/book-search', to: 'books#search'
     end
   end
 end
