@@ -1,8 +1,9 @@
-class UnsplashService
+class OpenlibraryService
   class << self
-    def find_books(book)
-      resp = conn.get("") do |faraday|
-        faraday.params[''] = ""
+    def find_books(location, quantity)
+      resp = conn.get("/search.json") do |faraday|
+        faraday.params['q'] = location
+        faraday.params['limit'] = quantity
       end
       parse_json(resp)
     end
