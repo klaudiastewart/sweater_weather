@@ -30,7 +30,7 @@ RSpec.describe 'Books Controller, api::v1::Bookscontroller', type: :request do
 
         expect(book[:data][:attributes][:forecast].keys).to eq([:summary, :temperature])
         expect(book[:data][:attributes][:forecast][:summary]).to be_a(String)
-        expect(book[:data][:attributes][:forecast][:temperature]).to be_a(Float)
+        expect(book[:data][:attributes][:forecast][:temperature]).to be_a(String)
 
         expect(book[:data][:attributes][:books].count).to eq(5)
         expect(book[:data][:attributes][:books].first.keys).to eq([:isbn, :title, :publisher])
