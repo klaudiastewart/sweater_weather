@@ -19,7 +19,7 @@ RSpec.describe 'Open Weather API, api::v1::weathercontroller', type: :request do
         expect(forecast).to be_a(Hash)
         expect(forecast[:data].count).to eq(3)
         expect(forecast[:data][:type]).to eq("forecast")
-        expect(forecast[:data][:attributes].keys).to eq([:current_weather, :daily_weather, :hourly_weather, :id])
+        expect(forecast[:data][:attributes].keys).to eq([:current_weather, :daily_weather, :hourly_weather])
 
         expect(forecast[:data][:attributes][:current_weather].count).to_not eq(15)
         expect(forecast[:data][:attributes][:current_weather][:datetime]).to be_a(String)
