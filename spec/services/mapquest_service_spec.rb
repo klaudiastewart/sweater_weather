@@ -6,5 +6,10 @@ RSpec.describe 'Mapquest Service' do
       call = MapquestService.get_lat_long('denver,co')
       expect(call.class).to eq(Hash)
     end
+
+    it 'can get_trip_directions', :vcr do
+      call = MapquestService.get_trip_directions('denver,co', 'ouray,co')
+      expect(call.class).to eq(Hash)
+    end
   end
 end
