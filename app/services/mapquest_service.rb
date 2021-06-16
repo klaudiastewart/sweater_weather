@@ -8,6 +8,15 @@ class MapquestService
       parse_json(resp)
     end
 
+    def get_trip_directions(origin, destination)
+      resp = conn.get("/directions/v2/route") do |faraday|
+        faraday.params['from'] = origin
+        faraday.params['to'] = destination
+      end
+      return "Impossible route" if parse_json(resp)[:info][:messages] == ["We are unable to route with the given locations."]
+      parse_json(resp)
+    end
+
     private
 
     def conn
