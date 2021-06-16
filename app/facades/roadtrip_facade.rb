@@ -2,6 +2,7 @@ class RoadtripFacade
   class << self
     def get_road_trip(origin, destination)
       directions = directions(origin, destination)
+      return directions if directions.class == String
       time = directions[:route][:formattedTime]
       lon = directions[:route][:boundingBox][:lr][:lng]
       lat = directions[:route][:boundingBox][:lr][:lat]
@@ -15,8 +16,6 @@ class RoadtripFacade
 
     def get_forecast(lat, lon, time)
       forecast = OpenweatherService.get_forecast(lat, lon)
-      # t = Time.parse(time) if time.to_i <= 24
-      # trip_seconds = t.hour * 3600 + t.min * 60 + t.sec
       trip_hours = if time.to_i <= 24
                     time.to_i
                   else
@@ -25,10 +24,10 @@ class RoadtripFacade
       description = []
       temperature = []
 
-      if trip_hours >= 24 #trip_seconds >= 86400
+      if trip_hours >= 24
         forecast[:daily].find_all do |day|
           if Time.now.to_i + (trip_hours * 3600).to_i >= day[:dt]
-            temperature << "#{(day[:temp][:day]- 273) * 1.8 + 32} F"
+            temperature << "#{((day[:temp][:day]- 273) * 1.8 + 32).round(2)}"
             description << day[:weather][0][:description]
           end
         end
@@ -39,13 +38,13 @@ class RoadtripFacade
       else
         forecast[:hourly].find_all do |hour|
           if Time.now.to_i + (trip_hours * 3600).to_i >= hour[:dt]
-            temperature << "#{(hour[:temp]- 273) * 1.8 + 32} F"
+            temperature << "#{((hour[:temp]- 273) * 1.8 + 32).round(2)}"
             description << hour[:weather][0][:description]
           end
         end
         hourly_weather = {
-          temperature: temperature[trip_hours],
-          description: description[trip_hours]
+          temperature: temperature.last.to_i.round(2),
+          description: description.last
         }
       end
     end
