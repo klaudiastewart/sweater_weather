@@ -1,15 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Roadtrip Controller, api::v1::roadtripcontroller', type: :request do
-  let(:valid_headers) {
-   {"CONTENT_TYPE" => "application/json"}
-   {"Etag" => "f22061f294b256cf0e04fa4d150cee30"}
-   {"Cache-Control" => "max-age=0, private, must-revalidate"}
-   {"X-Request-id" => "aab43c90-7f82-4ec7-9101-6a22b6e341e4"}
-   {"X-Runtime" => "0.095101"}
-   {"Transfer-Encoding" => "chunked"}
- }
-
   describe 'Getting information from this API' do
     describe 'Happy path' do
       it 'can POST a roadtrip and return weather and travel time', :vcr do
