@@ -96,7 +96,7 @@ The following are all API endpoints. Note, some endpoints have optional or requi
 }
 ``` 
 
-### Create a user 
+### Create a user: 
 ``` 
 {
   "data": {
@@ -109,7 +109,7 @@ The following are all API endpoints. Note, some endpoints have optional or requi
   }
 }
 ``` 
-### Login a user
+### Login a user:
 ```
 {
   "data": {
@@ -122,7 +122,7 @@ The following are all API endpoints. Note, some endpoints have optional or requi
   }
 }
 ```
-### Create a road trip 
+### Create a road trip: 
 ```
 {
   "data": {
