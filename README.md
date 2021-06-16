@@ -152,3 +152,12 @@ Run all tests in application with `bundle exec rspec`. When test is complete, ru
 ## Built Using
 
   - Ruby on Rails
+
+## Developers
+
+- [Klaudia Stewart](https://github.com/klaudiastewart)
+
+## Acknowledgments
+
+I'd like to thank Turing School of Software and Engineering for helping me come up with the idea for this application, and thank you for reading through this project!
+
